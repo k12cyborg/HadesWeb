@@ -1,9 +1,7 @@
-import './App.css'
-
 function App() {
   return (
       <div>
-        pagina en construccion uwu
+        Página en construcción :3
       </div>
   )
 }

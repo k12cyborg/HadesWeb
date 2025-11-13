@@ -1,23 +1,20 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 
-import { createBrowserRouter } from 'react-router';
-import { RouterProvider } from 'react-router/dom';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router";
 
-import './index.css'
-import App from './App.tsx'
-import { ErrorBoundary } from './ErrorBoundary.tsx';
+import "./index.css";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    ErrorBoundary: ErrorBoundary
-  },
-]);
-
-createRoot(document.getElementById('root')!).render(
+import App from "./App.tsx";
+import Linkaccount from "./pages/Linkaccount.tsx";
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
-)
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/linkaccount" element={<Linkaccount />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </BrowserRouter>
+  </StrictMode>
+);
